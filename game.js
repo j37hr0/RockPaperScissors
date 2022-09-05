@@ -1,7 +1,7 @@
-let playerScore;
-let computerScore;
-let playerSelection = prompt("Rock, paper, or scissors?").toLocaleLowerCase()
+let playerScore = 0
+let computerScore = 0
 const computerSelection = getComputerChoice()
+let playerSelection 
 
 function getComputerChoice() {
     num = Math.floor(Math.random() * 3) + 1
@@ -16,9 +16,14 @@ function getComputerChoice() {
     }
 }
 
+function getPlayerChoice() {
+    let playerSelection = prompt("Rock, paper, or scissors?").toLocaleLowerCase()
+    return playerSelection
+}
+
 function playRound(player, computer) {
     if (player === computer) {
-        tie = "It's a tie."
+        let tie = 2;
         return tie
     }
     else if (player === "rock" && computer === "scissors"){
@@ -49,12 +54,22 @@ function playRound(player, computer) {
 }
 
 function game() {
-    let currentScore = playRound(playerSelection, computerSelection)
-    if (currentScore === 0) {
-        ++computerScore
+    let outcome = playRound(getPlayerChoice(), getComputerChoice())
+    if (outcome === 0) {
+        computerScore = computerScore + 1
+        console.log("You lose")
     }
-    else if (currentScore === 1) {
-        ++playerScore
+    else if (outcome === 1) {
+        playerScore = playerScore + 1
+        console.log("You win")
     }
+    else if (outcome === 2) {
+        console.log("It's a tie")
+    }
+}
 
+for (let i = 0; i < 5; i++) {
+    game()
+    console.log(`player score: ${playerScore}`)
+    console.log(`computer score: ${computerScore}`)
 }
