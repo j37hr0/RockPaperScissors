@@ -29,6 +29,7 @@ function playRound(player, computer) {
     else if (player === "rock" && computer === "scissors"){
     let win = 1;
     return win
+    console.log("win")
     }
     else if (player === "rock" && computer === "paper"){
     let lose = 0;
@@ -53,8 +54,8 @@ function playRound(player, computer) {
     
 }
 
-function game() {
-    let outcome = playRound(getPlayerChoice(), getComputerChoice())
+function game(choice) {
+    let outcome = playRound(choice, getComputerChoice())
     if (outcome === 0) {
         computerScore = computerScore + 1
         console.log("You lose")
@@ -68,8 +69,17 @@ function game() {
     }
 }
 
-for (let i = 0; i < 5; i++) {
-    game()
-    console.log(`player score: ${playerScore}`)
-    console.log(`computer score: ${computerScore}`)
-}
+const body = document.querySelector('.main')
+
+const rockButton = document.createElement('button')
+const paperButton = document.createElement('button')
+const scissorsButton = document.createElement('button')
+rockButton.textContent = "Rock"
+paperButton.textContent = "Paper"
+scissorsButton.textContent = "Scissors"
+rockButton.addEventListener('click', game('rock'))
+paperButton.addEventListener('click', game('paper'))
+scissorsButton.addEventListener('click', game('scissors'))
+body.appendChild(rockButton)
+body.appendChild(paperButton)
+body.appendChild(scissorsButton)
