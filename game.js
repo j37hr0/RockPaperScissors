@@ -16,10 +16,11 @@ function getComputerChoice() {
     }
 }
 
-function getPlayerChoice() {
-    let playerSelection = prompt("Rock, paper, or scissors?").toLocaleLowerCase()
-    return playerSelection
-}
+// function getPlayerChoice() {
+//     let playerSelection;
+//     if 
+//     return playerSelection
+// }
 
 function playRound(player, computer) {
     if (player === computer) {
@@ -70,16 +71,10 @@ function game(choice) {
 }
 
 const body = document.querySelector('.main')
+const allButtons = document.querySelectorAll('.btn')
+allButtons.forEach((button)=>{button.addEventListener('click',()=>{
+    playerSelection = button.id;
+    console.log(playerSelection)
+    game(playerSelection)
+})})
 
-const rockButton = document.createElement('button')
-const paperButton = document.createElement('button')
-const scissorsButton = document.createElement('button')
-rockButton.textContent = "Rock"
-paperButton.textContent = "Paper"
-scissorsButton.textContent = "Scissors"
-rockButton.addEventListener('click', game('rock'))
-paperButton.addEventListener('click', game('paper'))
-scissorsButton.addEventListener('click', game('scissors'))
-body.appendChild(rockButton)
-body.appendChild(paperButton)
-body.appendChild(scissorsButton)
