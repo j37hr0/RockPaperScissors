@@ -56,25 +56,41 @@ function playRound(player, computer) {
 }
 
 function game(choice) {
+    if (playerScore == 5){
+        window.alert('You win the game!!')
+    }
+    else if (computerScore == 5){
+        window.alert('You lose the game!!')
+    }
     let outcome = playRound(choice, getComputerChoice())
     if (outcome === 0) {
         computerScore = computerScore + 1
-        console.log("You lose")
+        para.textContent = "You lose!"
     }
     else if (outcome === 1) {
         playerScore = playerScore + 1
-        console.log("You win")
+        para.textContent = "You win!"
     }
     else if (outcome === 2) {
-        console.log("It's a tie")
+        para.textContent = "It's a tie"
     }
 }
 
 const body = document.querySelector('.main')
 const allButtons = document.querySelectorAll('.btn')
+
 allButtons.forEach((button)=>{button.addEventListener('click',()=>{
     playerSelection = button.id;
     console.log(playerSelection)
     game(playerSelection)
+    scoreC.textContent = `Computer: ${computerScore}`
+    scoreP.textContent = `Player: ${playerScore}`
 })})
 
+const display = document.querySelector('.display')
+const para = document.createElement('p')
+const scoreP = document.createElement('p')
+const scoreC = document.createElement('p')
+display.appendChild(scoreP)
+display.appendChild(scoreC)
+display.appendChild(para)
