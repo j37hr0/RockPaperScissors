@@ -4,17 +4,29 @@
 
 }
 
+.rock {
+align-self: flex-start;
+}
+
+.paper {
+align-self: center;
+}
+
+.scissors {
+align-self: flex-end;
+
+}
+
 .display {
-    height: 600px;
-    width: 800px;
+    height: auto;
+    width: auto;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    flex-basis: 100px;
+
+    justify-content: space-evenly;
 }
 
 p {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+
 }

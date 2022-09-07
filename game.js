@@ -30,7 +30,6 @@ function playRound(player, computer) {
     else if (player === "rock" && computer === "scissors"){
     let win = 1;
     return win
-    console.log("win")
     }
     else if (player === "rock" && computer === "paper"){
     let lose = 0;
