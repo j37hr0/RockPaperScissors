@@ -1,3 +1,7 @@
+//TODO create a function to clear the game after it reaches 5
+//TODO modify current game so playing a round returns a value that the computer
+//played so that we can add it to output text
+
 let playerScore = 0;
 let computerScore = 0;
 const computerSelection = getComputerChoice();
@@ -92,6 +96,8 @@ const para = document.createElement('p')
 const scoreP = document.createElement('p')
 const scoreC = document.createElement('p')
 scoreP.setAttribute("style", "font-size:30px")
+scoreP.textContent = "Player: 0";
+scoreC.textContent = "Computer: 0";
 scoreC.setAttribute("style", "font-size:30px")
 para.setAttribute("style", "font-size:60px;font-weight:bold;")
 display.appendChild(scoreP)
