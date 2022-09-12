@@ -1,6 +1,5 @@
 //TODO create a function to clear the game after it reaches 5
-//TODO modify current game so playing a round returns a value that the computer
-//played so that we can add it to output text
+
 
 let playerScore = 0;
 let computerScore = 0;
@@ -41,19 +40,19 @@ function playRound(player, computer) {
     return lose
     }
     else if (player === "scissors" && computer === "paper") {
-        let win = 1;
+        let win = 3;
         return win
     }
     else if (player === "scissors" && computer === "rock") {
-        let lose = 0;
+        let lose = 4;
         return lose
     }
     else if (player === "paper" && computer === "rock") {
-        let win = 1;
+        let win = 5;
         return win
     }
     else if (player === "paper" && computer === "scissors") {
-        let lose = 0;
+        let lose = 6;
         return lose
     }
     
@@ -62,21 +61,41 @@ function playRound(player, computer) {
 function game(choice) {
     if (playerScore == 5){
         window.alert('You win the game!!')
+        playerScore = 0;
+        computerScore = 0;
     }
     else if (computerScore == 5){
         window.alert('You lose the game!!')
+        playerScore = 0;
+        computerScore = 0;
     }
     let outcome = playRound(choice, getComputerChoice())
     if (outcome === 0) {
         computerScore = computerScore + 1
-        para.textContent = "You lose!"
+        para.textContent = "You chose rock, the computer chose paper! You lose!"
     }
     else if (outcome === 1) {
         playerScore = playerScore + 1
-        para.textContent = "You win!"
+        para.textContent = "You chose rock, the computer chose scissors! You win!"
     }
     else if (outcome === 2) {
-        para.textContent = "It's a tie"
+        para.textContent = "It's a tie!"
+    }
+    else if (outcome === 3) {
+        playerScore = playerScore + 1
+        para.textContent = "You chose scissors, the computer chose paper! You win!"
+    }
+    else if (outcome === 4) {
+        playerScore = playerScore + 1
+        para.textContent = "You chose scissors, the computer chose rock! You lose!"
+    }
+    else if (outcome === 5) {
+        playerScore = playerScore + 1
+        para.textContent = "You chose paper, the computer chose rock! You win!"
+    }
+    else if (outcome === 6) {
+        playerScore = playerScore + 1
+        para.textContent = "You chose paper, the computer chose scissors! You lose!"
     }
 }
 
