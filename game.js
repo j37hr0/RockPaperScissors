@@ -1,7 +1,8 @@
-let playerScore = 0
-let computerScore = 0
-const computerSelection = getComputerChoice()
-let playerSelection 
+let playerScore = 0;
+let computerScore = 0;
+const computerSelection = getComputerChoice();
+let playerSelection;
+
 
 function getComputerChoice() {
     num = Math.floor(Math.random() * 3) + 1
@@ -90,6 +91,9 @@ const display = document.querySelector('.display')
 const para = document.createElement('p')
 const scoreP = document.createElement('p')
 const scoreC = document.createElement('p')
+scoreP.setAttribute("style", "font-size:30px")
+scoreC.setAttribute("style", "font-size:30px")
+para.setAttribute("style", "font-size:60px;font-weight:bold;")
 display.appendChild(scoreP)
 display.appendChild(scoreC)
 display.appendChild(para)
